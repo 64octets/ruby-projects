@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  file_name: MyString
+  priority: 1
+  project_id: 
+
+two:
+  file_name: MyString
+  priority: 1
+  project_id: 

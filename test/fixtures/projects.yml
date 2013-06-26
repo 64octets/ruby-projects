@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  started: 2013-06-26
+  finished: 2013-06-26
+  url: MyString
+  email: MyString
+  progress: 1
+  active: false
+  title_image_id: 
+
+two:
+  name: MyString
+  description: MyString
+  started: 2013-06-26
+  finished: 2013-06-26
+  url: MyString
+  email: MyString
+  progress: 1
+  active: false
+  title_image_id: 
