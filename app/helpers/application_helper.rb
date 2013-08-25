@@ -1,97 +1,28 @@
 module ApplicationHelper
-  def large_project_helper(is_last)
-    shrinked = false
-    extended = false
-    if is_last || @row_span > 75
-      extended = true unless is_last
-      new_width = 50 + (100 - (@row_span))
-      concat raw("<div class=\"project-container project-container-large\" style=\"width:#{new_width}%;\">")
-    elsif @row_span > 100
-      new_width = 50 - (@row_span - 100)
-      concat raw("<div class=\"project-container project-container-large\" style=\"width:#{new_width}%;\">")
-      shrinked = true
-    else
-      concat raw('<div class="project-container project-container-large">')
-    end
+  def render_status(project)
+    render_progress(project.progress)
+    concat raw '<br>'
+    render_active(project.active)
+  end
 
-    yield
-    concat raw('</div>')
-    if shrinked || extended
-      @row_span = 0
-      concat raw('</div><div class="row">')
+  def render_progress(progress)
+    case progress
+      when 'planning'
+        concat raw ("<span class=\"status-blue\"><i class=\"icon-circle-blank\"></i> Planning</span>")
+      when 'development'
+        concat raw ("<span class=\"status-blue\"><i class=\"icon-circle\"></i> In Development</span>")
+      when 'canceled'
+        concat raw ("<span class=\"status-red\"><i class=\"icon-circle\"></i> Canceled</span>")
+      when 'finished'
+        concat raw ("<span class=\"status-green\"><i class=\"icon-circle\"></i> Finished</span>")
     end
   end
 
-  def medium_project_helper(is_last)
-    shrinked = false
-    extended = false
-    if is_last || @row_span > 75
-      extended = true unless is_last
-      new_width = 33 + (100 - (@row_span))
-      concat raw("<div class=\"project-container project-container-medium\" style=\"width:#{new_width}%;\">")
-    elsif @row_span > 100
-      new_width = 33 - (@row_span - 100)
-      concat raw("<div class=\"project-container project-container-medium\" style=\"width:#{new_width}%;\">")
-      shrinked = true
+  def render_active(active_state)
+    if active_state
+      concat raw ("<span class=\"status-green\"><i class=\"icon-circle\"></i> Active</span>")
     else
-      concat raw('<div class="project-container project-container-medium">')
+      concat raw ("<span class=\"status-red\"><i class=\"icon-circle\"></i> Inactive</span>")
     end
-    yield
-    concat raw('</div>')
-    if shrinked || extended
-      @row_span = 0
-      concat raw('</div><div class="row">')
-    end
-  end
-
-  def small_project_helper(is_last)
-    shrinked = false
-    extended = false
-    if is_last || @row_span > 75
-      extended = true unless is_last
-      new_width = 25 + (100 - (@row_span))
-      concat raw("<div class=\"project-container project-container-small\" style=\"width:#{new_width}%;\">")
-    elsif @row_span > 100
-      new_width = 25 - (@row_span - 100)
-      concat raw("<div class=\"project-container project-container-small\" style=\"width:#{new_width}%;\">")
-      shrinked = true
-    else
-      concat raw('<div class="project-container project-container-small">')
-    end
-    yield
-    concat raw('</div>')
-    if shrinked || extended
-      @row_span = 0
-      concat raw('</div><div class="row">')
-    end
-  end
-
-  def print_project(project, is_last)
-      logger.debug(is_last)
-       if project.popularity >= 6
-         @row_span += 50
-         large_project_helper(is_last) do
-           concat raw ("<div class=\"content\" style=\"background-image:url('http://lorempixel.com/500/230/technics/#{@global_cnt}');\">")
-           concat raw ("<h2>#{project.name}</h2>")
-           concat raw ("<div class=\"description\"><p>#{project.description}</p></div>")
-           concat raw ('</div>')
-         end
-       elsif project.popularity < 6 and project.popularity > 4
-         @row_span += 33
-         medium_project_helper(is_last) do
-           concat raw ("<div class=\"content\" style=\"background-image:url('http://lorempixel.com/500/230/technics/#{@global_cnt}');\">")
-           concat raw ("<h2>#{project.name}</h2>")
-           concat raw ("<div class=\"description\"><p>#{project.description}</p></div>")
-           concat raw ('</div>')
-         end
-       else
-         @row_span += 25
-          small_project_helper(is_last) do
-            concat raw ("<div class=\"content\" style=\"background-image:url('http://lorempixel.com/500/230/technics/#{@global_cnt}');\">")
-            concat raw ("<h2>#{project.name}</h2>")
-             concat raw ("<div class=\"description\"><p>#{project.description}</p></div>")
-            concat raw ('</div>')
-          end
-       end
   end
 end

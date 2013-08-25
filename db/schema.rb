@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20130626213323) do
     t.date     "finished"
     t.string   "url"
     t.string   "email"
-    t.integer  "progress" # planning, in development, finished, canceled
+    t.string  "progress" # planning, in development, finished, canceled
     t.boolean  "active" # active or inactive
     t.integer  "priority"
     t.integer  "popularity"

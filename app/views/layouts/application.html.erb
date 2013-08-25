@@ -26,6 +26,12 @@
           </li>
         </ul>
       </div>
+      <%=
+          link_to_if(user_signed_in?, raw('<i class="icon-signout"></i>'), logout_path, { :class => 'session', :title => 'Logout' }) do
+            link_to(raw('<i class="icon-signin"></i>'), login_path, { :class => 'session', :title => 'Login' })
+          end
+       %>
+
     </div>
   </div>
 </div>

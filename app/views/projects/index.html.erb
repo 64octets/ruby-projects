@@ -9,3 +9,9 @@
       <% @global_cnt += 1 %>
 <% end %>
 </div>
+
+<%=
+    link_to_if(user_signed_in?, raw('<i class="icon-plus-sign-alt"></i> Add Project'), add_project_path) do
+      ''
+    end
+%>

@@ -1,0 +1,7 @@
+<div style="margin: 200px auto 0 auto; width: 300px;">
+<%= form_tag sessions_path, :class => 'inline' do %>
+      <%= password_field_tag :password, params[:password_digest], :class => 'form_input', :placeholder => 'Password' %>
+      <br>
+      <%= submit_tag 'Login', :class => 'btn input-medium' %>
+<% end %>
+</div>
