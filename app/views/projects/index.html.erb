@@ -1,1 +1,11 @@
-Hallo Welt
+
+<% @row_span = 0 %>
+<% @global_cnt = 0 %>
+<div class="row">
+<% @projects.each_with_index do | project, index | %>
+      <% @global_cnt = 2 if @global_cnt > 10 %>
+      <% logger.debug("#{index} == #{@projects.length-1}")  %>
+      <% print_project(project, (index == @projects.length-1)) %>
+      <% @global_cnt += 1 %>
+<% end %>
+</div>

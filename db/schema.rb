@@ -25,13 +25,16 @@ ActiveRecord::Schema.define(version: 20130626213323) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
+    t.string   "small_description"
     t.string   "description"
     t.date     "started"
     t.date     "finished"
     t.string   "url"
     t.string   "email"
-    t.integer  "progress"
-    t.boolean  "active"
+    t.integer  "progress" # planning, in development, finished, canceled
+    t.boolean  "active" # active or inactive
+    t.integer  "priority"
+    t.integer  "popularity"
     t.integer  "title_image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
