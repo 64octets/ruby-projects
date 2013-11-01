@@ -1,0 +1,32 @@
+<%= form_for @project, url: { action: 'create'} do | f | %>
+    <fieldset>
+      <legend>New project</legend>
+      <label>Project Name</label>
+      <%= f.text_field :name %>
+      <label>Small Description</label>
+      <%= f.text_field :small_description, :class => 'input-xxlarge' %>
+      <label>Large Description</label>
+      <%= f.text_area :description, { :rows => 6, :class => 'input-xxlarge' } %>
+      <label>Project Started</label>
+      <%= f.date_select :started, { :start_year => 2000, :end_year => 2020 }, :class => 'input-medium' %>
+      <label>Project Finished</label>
+      <%= f.date_select :finished, { :start_year => 2000, :end_year => 2020 }, :class => 'input-medium' %>
+      <label>Homepage</label>
+      <%= f.url_field :url %>
+      <label>Contact mail</label>
+      <%= f.email_field :email %>
+      <label>Priority</label>
+      <%= f.text_field :priority, :class => 'input-mini' %>
+      <label class="checkbox">
+        <%= f.check_box :active %> Project is active
+      </label>
+
+      <label>Current project state</label>
+      <%= f.select(:progress, [ %w(Planning planning), ['In Development', 'development'], %w(Canceled canceled), %w(Finished finished)]) %>
+
+      <label>Metro Size</label>
+      <%= f.select(:metro_size, [ %w(Small small),%w(Medium medium), %w(Large large) ]) %>
+      <p></p>
+      <%= f.submit({ :class => 'btn' }) %>
+    </fieldset>
+<% end %>

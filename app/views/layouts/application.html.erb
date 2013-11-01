@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyProjects</title>
+  <title>Bolvin.Dev()</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <%= csrf_meta_tags %>
+  <!-- Piwik Async -->
+  <script type="text/javascript">
+      var _paq = _paq || []; (function() {
+          var u=('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.bolvin.de/';
+          _paq.push(['setSiteId', 1]);
+          _paq.push(['setTrackerUrl', u + 'piwik.php']);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+          g.type = 'text/javascript';
+          g.defer = true;
+          g.async = true;
+          g.src = u + 'piwik.js';
+          s.parentNode.insertBefore(g, s);
+      })();
+  </script>
 </head>
 <body>
 <div class="navbar navbar-inverse">
@@ -18,17 +35,19 @@
       <a class="brand" href="./index.html">Bolvin.Dev()</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
+          <!--
           <li class="active">
             <a href="./index.html">Home</a>
           </li>
           <li class="">
             <a href="./getting-started.html">About Me</a>
           </li>
+          -->
         </ul>
       </div>
       <%=
           link_to_if(user_signed_in?, raw('<i class="icon-signout"></i>'), logout_path, { :class => 'session', :title => 'Logout' }) do
-            link_to(raw('<i class="icon-signin"></i>'), login_path, { :class => 'session', :title => 'Login' })
+            ''#link_to(raw('<i class="icon-signin"></i>'), login_path, { :class => 'session', :title => 'Login' })
           end
        %>
 
@@ -40,6 +59,9 @@
 </div>
 <div class="row">
   <div class="span4"></div>
+</div>
+<div id="footer">
+  Copyright 2013 Frédéric Bolvin | Contact Image: CC-BY by <a href="http://www.flickr.com/photos/alecperkins/">Alec Perkins</a> | Development Image: CC-BY by <a href="http://www.flickr.com/photos/mpa/">Marissa Anderson</a>
 </div>
 
 </body>

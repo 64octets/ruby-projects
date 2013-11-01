@@ -2,12 +2,40 @@
 <% @row_span = 0 %>
 <% @global_cnt = 0 %>
 <div class="row">
-<% @projects.each_with_index do | project, index | %>
-      <% @global_cnt = 2 if @global_cnt > 10 %>
-      <% logger.debug("#{index} == #{@projects.length-1}")  %>
-      <% print_project(project, (index == @projects.length-1)) %>
-      <% @global_cnt += 1 %>
-<% end %>
+  <div class="project-container project-container-small">
+    <div class="content" style="background-image:url('img/me.jpg');">
+         <h2>Frédéric Bolvin</h2>
+         <div class="description">
+           <p>Software Developer & IT-Consultant<br><br>
+              Living in Germany.
+           </p>
+         </div>
+    </div>
+  </div>
+  <div class="project-container project-container-small">
+    <div class="content" style="background-image:url('img/contact.jpg');">
+      <h2>Contact</h2>
+      <div class="description">
+        <p>Visit my <a href="https://github.com/Fensterbank" target="_blank">GitHub Profile</a> or feel free to contact me via <a href="mailto:frederic@bolvin.de">frederic@bolvin.de</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="project-container project-container-large">
+    <div class="content" style="background-image:url('img/coding.jpg');">
+      <h2>Development</h2>
+      <div class="description">
+        <p>Ruby on Rails | ASP.NET | PHP<br>Apps for Windows 8, Firefox OS and Open Web Apps<br>C# .NET | Ruby | Microsoft SharePoint Development | Java</p>
+      </div>
+    </div>
+  </div>
+<%# @projects.each_with_index do | project, index | %>
+      <%# @global_cnt = 2 if @global_cnt > 10 %>
+      <%# logger.debug("#{index} == #{@projects.length-1}")  %>
+      <%# print_project(project, (index == @projects.length-1)) %>
+      <%# @global_cnt += 1 %>
+<%# end %>
+
 </div>
 
 <%=

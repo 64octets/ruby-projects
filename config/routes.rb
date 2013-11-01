@@ -5,4 +5,5 @@ RubyProjects::Application.routes.draw do
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
   post 'sessions' => 'sessions#create', as: 'sessions'
+  post 'projects' => 'projects#create', as: 'create_project'
 end

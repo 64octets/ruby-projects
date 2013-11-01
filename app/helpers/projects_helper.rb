@@ -77,12 +77,12 @@ module ProjectsHelper
   end
 
   def print_project(project, is_last)
-    if project.popularity >= 6
+    if project.metro_size == 'large'
       @row_span += 500
       large_project_helper(is_last) do
         print_project_box_content(project)
       end
-    elsif project.popularity < 6 and project.popularity > 4
+    elsif project.metro_size == 'medium'
       @row_span += 330
       medium_project_helper(is_last) do
         print_project_box_content(project)

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20130626213323) do
     t.string  "progress" # planning, in development, finished, canceled
     t.boolean  "active" # active or inactive
     t.integer  "priority"
-    t.integer  "popularity"
+    t.string   "metro_size"
     t.integer  "title_image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
